@@ -1,0 +1,4 @@
+- Tutorial Project
+- Integrate proper error handling
+- Initialize .gitignore for important files
+- Proper routing
