@@ -1,21 +1,11 @@
 import express from "express";
+import * as contactController from "../controllers/contactController.js";
 
 const router = express.Router();
 
-router.route("/").get((req, res) => {
-	res.json({ message: "Server is working!" });
-});
-
-router.route("/").post((req, res) => {
-	res.json({ message: "Created Data!" });
-});
-
-router.route("/:id").put((req, res) => {
-	res.json({ message: `Updated Data ${req.params.id}` });
-});
-
-router.route("/:id").delete((req, res) => {
-	res.json({ message: `Deleted Data ${req.params.id}` });
-});
+router.route("/").get(contactController.getAllData);
+router.route("/").post(contactController.createData);
+router.route("/:id").put(contactController.updateData);
+router.route("/:id").delete(contactController.deleteData);
 
 export default router;
