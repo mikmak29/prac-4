@@ -2,19 +2,19 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.route("/").get((req, res) => {
 	res.json({ message: "Server is working!" });
 });
 
-router.post("/", (req, res) => {
+router.route("/").post((req, res) => {
 	res.json({ message: "Created Data!" });
 });
 
-router.put("/:id", (req, res) => {
+router.route("/:id").put((req, res) => {
 	res.json({ message: `Updated Data ${req.params.id}` });
 });
 
-router.delete("/:id", (req, res) => {
+router.route("/:id").delete((req, res) => {
 	res.json({ message: `Deleted Data ${req.params.id}` });
 });
 
