@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import express from "express";
 import router from "./routes/route.js";
+import { dbConnection } from "./config/database.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use("/", router);
 
 const serverStarter = async () => {
 	try {
+		await dbConnection();
 		app.listen(port, () => {
 			console.log(`Server listening at port ${port}`);
 		});
